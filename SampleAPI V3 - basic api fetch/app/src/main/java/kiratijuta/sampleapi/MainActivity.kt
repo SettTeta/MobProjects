@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder().baseUrl("https://dl.dropboxusercontent.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         val generalAPI = retrofit.create(GeneralAPI::class.java)
 
         val getProfileResponse: Call<ProfileAndGradeResponse> = generalAPI.getProfileAndGrades()
@@ -79,8 +80,7 @@ class MainActivity : AppCompatActivity() {
         val courseGrade = itemView.displayCourseGrade
     }
 
-    inner class GradeAdapter(var grades: List<GradeResponse>) :
-        RecyclerView.Adapter<GradeHolder>() {
+    inner class GradeAdapter(var grades: List<GradeResponse>) : RecyclerView.Adapter<GradeHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GradeHolder {
             val view = layoutInflater.inflate(R.layout.row_item, parent, false)
             return GradeHolder(view)
@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
             holder.courseGrade.text = grades[position].grade
             holder.courseCredit.text = grades[position].credit.toString()
             holder.courseName.text = grades[position].name
+
 
         }
 

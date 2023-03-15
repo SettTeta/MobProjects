@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         getGadgetFromDatabaseToListView()
     }
 
-    public fun gotoAddNewGadget(v: View) {
+    fun gotoAddNewGadget(v: View) {
         val intent = Intent(this, NewGadgetActivity::class.java)
         startActivity(intent)
     }
